@@ -19,6 +19,7 @@ public class admodgrana extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admodgrana);
+        MobileAds.initialize(this, "@string/id");
 
         // Load an ad into the AdMob banner view.
         AdView adView = (AdView) findViewById(R.id.adView);
