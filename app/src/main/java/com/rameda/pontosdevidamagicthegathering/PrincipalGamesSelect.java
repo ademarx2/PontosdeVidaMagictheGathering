@@ -35,7 +35,7 @@ public class PrincipalGamesSelect extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chamar = new Intent(getApplicationContext(),admodgrana.class);
+                Intent chamar = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(chamar);
 
             }

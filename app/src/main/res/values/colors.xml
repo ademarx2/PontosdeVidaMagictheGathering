@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="verde">#1DE725</color>
-    <color name="branco">#ffffff</color>
+    <color name="branco">#FFFFFF</color>
     <color name="transparente">#66000000</color>
 </resources>

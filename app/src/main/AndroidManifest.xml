@@ -14,8 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/id"/>
         <activity
-            android:name=".PrincipalGamesSelect"
+
+            android:screenOrientation="portrait"
+            android:name=".MainActivity"
             android:label="@string/principal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +30,13 @@
         </activity>
         <!-- Include the AdActivity configChanges and theme. -->
         <activity
+            android:screenOrientation="portrait"
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:name=".PrincipalGamesSelect"
             android:label="@string/title_activity_principal_games_select"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity android:name=".admodgrana">
