@@ -27,11 +27,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
+        android:background="#55F50000"
         app:layout_constraintBottom_toBottomOf="@+id/tv_jogador2"
         app:layout_constraintEnd_toEndOf="@+id/btt_jogador2subtracao"
         app:layout_constraintStart_toStartOf="@+id/btt_jogador2adicao"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/azul" />
+ />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -44,13 +45,14 @@
         android:id="@+id/tv_vermelho"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#2196F3"
 
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="@+id/btt_jogador1subtracao"
         app:layout_constraintStart_toStartOf="@+id/btt_jogador1adicao"
         app:layout_constraintTop_toTopOf="@+id/tv_jogador1"
-        app:srcCompat="@drawable/vermelho" />
+        />
 
     <TextView
         android:id="@+id/tv_jogador1"
@@ -59,7 +61,6 @@
         android:layout_gravity="center_horizontal"
         android:rotation="180"
         android:text="20"
-        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/branco"
         android:textSize="130dp"
@@ -232,19 +233,7 @@
         ads:layout_constraintGuide_begin="271dp" />
 
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
-        android:text="4 Playes"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline20"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_4players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
