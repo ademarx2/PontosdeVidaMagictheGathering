@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public int valor2 = 20;
 
     Button btt_somaJogador1,btt_somaJogador2,btt_subtracaoJogador1,btt_subtracaoJogador2;
-    FloatingActionButton fabReset;
+    FloatingActionButton fabReset,fab_4playes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 tv_jogador2.setText(""+valor2);
             }
         });
-/*
-        btt_reset.setOnClickListener(new View.OnClickListener() {
+        fab_4playes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                valor1 = 20;
-                valor2 = 20;
-                tv_jogador1.setText(""+valor1);
-                tv_jogador2.setText(""+valor2);
+                Intent chamar = new Intent(getApplicationContext(),tresJogadores.class);
+                startActivity(chamar);
             }
-        });*/
+        });
+
 
         btt_subtracaoJogador1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest2 = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView2.loadAd(adRequest2);
+
+
         // Load an ad into the AdMob banner view.
         AdView adView = (AdView) findViewById(R.id.adViewTop);
         AdRequest adRequest = new AdRequest.Builder()
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         tv_jogador2 = findViewById(R.id.tv_jogador2);
         //btt_reset = findViewById(R.id.btt_reset);
        fabReset = findViewById(R.id.fab_reset);
+       fab_4playes = findViewById(R.id.fab_4players);
         btt_somaJogador1 = findViewById(R.id.btt_jogador1adicao);
         btt_somaJogador2 = findViewById(R.id.btt_jogador2adicao);
         btt_subtracaoJogador1 = findViewById(R.id.btt_jogador1subtracao);
