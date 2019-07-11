@@ -1,42 +1,48 @@
 package com.rameda.pontosdevidamagicthegathering;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+public class TresPlayes extends AppCompatActivity {
 
 
-public class tresJogadores extends AppCompatActivity {
 
     TextView tv_jogador1, tv_jogador2, tv_jogador3, tv_jogador4;
     public int valor1 = 20;
     public int valor2 = 20;
     public int valor3 = 20;
-    public int valor4 = 20;
+
     int n = 0;
 
-    Button btt_somaJogador1, btt_somaJogador2, btt_subtracaoJogador1, btt_subtracaoJogador2, btt_somaJogador3, btt_somaJogador4, btt_subtracaoJogador3, btt_subtracaoJogador4;
-    ImageView iv_jogador1, iv_jogador2, iv_jogador3, iv_jogador4;
+    Button btt_somaJogador1, btt_somaJogador2, btt_subtracaoJogador1,
+            btt_subtracaoJogador2, btt_somaJogador3, btt_subtracaoJogador3;
     FloatingActionButton fabReset ;
-    public int[] arrayImage = {
-            R.drawable.arvoreverde,
-            R.drawable.azul2,
-            R.drawable.branco,
-            R.drawable.liliana,
-            R.drawable.red,
-            R.drawable.principal,
-            R.drawable.branco2};
+    private InterstitialAd mInterstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tres_jogadores);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-0130794426426264/3487804438");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.activity_tres_playes);
         invocacao();
 
         fabReset.setOnClickListener(new View.OnClickListener() {
@@ -46,13 +52,23 @@ public class tresJogadores extends AppCompatActivity {
                 valor1 = 20;
                 valor2 = 20;
                 valor3 = 20;
-                valor4 = 20;
-                tv_jogador1.setText(""+valor1);
-                tv_jogador2.setText(""+valor2);
-                tv_jogador3.setText(""+valor3);
-                tv_jogador4.setText(""+valor4);
+                tv_jogador1.setText("" + valor1);
+                tv_jogador2.setText("" + valor2);
+                tv_jogador3.setText("" + valor3);
+
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
+
+
             }
         });
+
+
+
+
 
         btt_somaJogador1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,16 +101,7 @@ public class tresJogadores extends AppCompatActivity {
             }
         });
 
-        btt_somaJogador4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    valor4 = valor4 + 1;
-                    tv_jogador4.setText("" + valor4);
-                } catch (Exception e) {
-                }
-            }
-        });
+
         btt_subtracaoJogador1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,19 +138,6 @@ public class tresJogadores extends AppCompatActivity {
 
             }
         });
-        btt_subtracaoJogador4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    valor4 = valor4 - 1;
-
-                    tv_jogador4.setText("" + valor4);
-
-                } catch (Exception e) {
-                }
-
-            }
-        });
 
 
         tv_jogador1.setOnClickListener(new View.OnClickListener() {
@@ -153,8 +147,6 @@ public class tresJogadores extends AppCompatActivity {
                 if (n == 7) {
                     n = 0;
                 }
-//                iv_jogador1.setImageResource(arrayImage[n]);
-
             }
         });
         tv_jogador2.setOnClickListener(new View.OnClickListener() {
@@ -164,8 +156,6 @@ public class tresJogadores extends AppCompatActivity {
                 if (n == 7) {
                     n = 0;
                 }
-             //   iv_jogador2.setImageResource(arrayImage[n]);
-
             }
         });
         tv_jogador3.setOnClickListener(new View.OnClickListener() {
@@ -175,58 +165,25 @@ public class tresJogadores extends AppCompatActivity {
                 if (n == 7) {
                     n = 0;
                 }
-            //    iv_jogador3.setImageResource(arrayImage[n]);
-
-            }
-        });
-        tv_jogador4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                n = n + 1;
-                if (n == 7) {
-                    n = 0;
-                }
-            //    iv_jogador4.setImageResource(arrayImage[n]);
-
-
             }
         });
     }
+        void invocacao () {
+            tv_jogador1 = findViewById(R.id.ttv_jogador1);
+            tv_jogador2 = findViewById(R.id.ttv_jogador2);
+            tv_jogador3 = findViewById(R.id.ttv_jogador3);
 
-    void invocacao() {
-        tv_jogador1 = findViewById(R.id.tv_jogador1);
-        tv_jogador2 = findViewById(R.id.tv_jogador2);
-        tv_jogador3 = findViewById(R.id.tv_jogador3);
-        tv_jogador4 = findViewById(R.id.tv_jogador4);
-        //btt_reset = findViewById(R.id.btt_reset);
-        fabReset = findViewById(R.id.btt_reset4);
-        btt_somaJogador1 = findViewById(R.id.btt_pontosvidajogador1mais);
-        btt_somaJogador2 = findViewById(R.id.btt_pontosvidajogador2mais);
-        btt_somaJogador3 = findViewById(R.id.btt_pontosvidajogador3mais);
-        btt_somaJogador4 = findViewById(R.id.btt_pontosvidajogador4mais);
-        btt_subtracaoJogador1 = findViewById(R.id.btt_pontosvidajogador1menos);
-        btt_subtracaoJogador2 = findViewById(R.id.btt_pontosvidajogador2menos);
-        btt_subtracaoJogador3 = findViewById(R.id.btt_pontosvidajogador3menos);
-        btt_subtracaoJogador4 = findViewById(R.id.btt_pontosvidajogador4menos);
+            //btt_reset = findViewById(R.id.btt_reset);
+            fabReset = findViewById(R.id.btt_reset4);
+            btt_somaJogador1 = findViewById(R.id.bbtt_pontosvidajogador1mais);
+            btt_somaJogador2 = findViewById(R.id.bbtt_jogador2adicao);
+            btt_somaJogador3 = findViewById(R.id.bbtt_pontosvidajogador3mais);
+            btt_subtracaoJogador1 = findViewById(R.id.bbtt_pontosvidajogador1menos);
+            btt_subtracaoJogador2 = findViewById(R.id.bbtt_jogador2subtracao);
+            btt_subtracaoJogador3 = findViewById(R.id.bbtt_pontosvidajogador3menos);
         /*iv_jogador1 = findViewById(R.id.iv_jogador1);
         iv_jogador2 = findViewById(R.id.iv_jogador2);
         iv_jogador3 = findViewById(R.id.iv_jogador3);
         iv_jogador4 = findViewById(R.id.iv_jogador4);*/
+        }
     }
-
-
-    private void Banners() {
-        // Load an ad into the AdMob banner view.
-        AdView adView2 = (AdView) findViewById(R.id.adViewbotto4);
-        AdRequest adRequest2 = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template").build();
-        adView2.loadAd(adRequest2);
-
-
-        // Load an ad into the AdMob banner view.
-        AdView adView = (AdView) findViewById(R.id.adViewtop4);
-        AdRequest adRequest = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template").build();
-        adView.loadAd(adRequest);
-    }
-}

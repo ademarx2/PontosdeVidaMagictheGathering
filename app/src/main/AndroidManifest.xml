@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".tresJogadores" />
+        <activity android:name=".TresPlayes"></activity>
+        <activity android:name=".QuatroJogadores" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

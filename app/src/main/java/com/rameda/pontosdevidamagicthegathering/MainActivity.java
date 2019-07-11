@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,10 +24,22 @@ public class MainActivity extends AppCompatActivity {
 
     Button btt_somaJogador1,btt_somaJogador2,btt_subtracaoJogador1,btt_subtracaoJogador2;
     FloatingActionButton fabReset,fab_4playes;
+    FloatingActionButton fab_Tres ;
+    private InterstitialAd mInterstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+
+
         setContentView(R.layout.activity_main);
         Banners();
         invocacao();
@@ -35,16 +51,28 @@ public class MainActivity extends AppCompatActivity {
                 valor2 = 20;
                 tv_jogador1.setText(""+valor1);
                 tv_jogador2.setText(""+valor2);
+
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
             }
         });
         fab_4playes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chamar = new Intent(getApplicationContext(),tresJogadores.class);
+                Intent chamar = new Intent(getApplicationContext(),QuatroJogadores.class);
                 startActivity(chamar);
             }
         });
-
+        fab_Tres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent chamar = new Intent(getApplicationContext(),TresPlayes.class);
+                startActivity(chamar);
+            }
+        });
 
         btt_subtracaoJogador1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +131,10 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-0130794426426264/5758389334");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
     void invocacao(){
@@ -111,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         //btt_reset = findViewById(R.id.btt_reset);
        fabReset = findViewById(R.id.fab_reset);
        fab_4playes = findViewById(R.id.fab_4players);
+        fab_Tres = findViewById(R.id.fab_Tres);
         btt_somaJogador1 = findViewById(R.id.btt_jogador1adicao);
         btt_somaJogador2 = findViewById(R.id.btt_jogador2adicao);
         btt_subtracaoJogador1 = findViewById(R.id.btt_jogador1subtracao);
