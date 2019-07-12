@@ -99,7 +99,7 @@
 
         ads:layout_constraintTop_toTopOf="parent"
         ads:layout_constraintVertical_bias="1.0"
-        ads:srcCompat="@drawable/principal" />
+   />
 
     <Button
         android:id="@+id/bbtt_pontosvidajogador3menos"
@@ -251,7 +251,6 @@
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/vermelho"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.50" />
 
@@ -397,10 +396,10 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         app:fabSize="mini"
-        app:backgroundTint="@color/transparente"
+        app:backgroundTint="#000"
         android:textAlignment="gravity"
         android:background="@android:color/transparent"
-        android:src="@drawable/bonito"
+        android:src="@drawable/ic_refresh_black_24dp"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintHorizontal_bias="0.51"

@@ -28,14 +28,14 @@ public class QuatroJogadores extends AppCompatActivity {
     Button btt_somaJogador1, btt_somaJogador2, btt_subtracaoJogador1, btt_subtracaoJogador2, btt_somaJogador3, btt_somaJogador4, btt_subtracaoJogador3, btt_subtracaoJogador4;
     ImageView iv_jogador1, iv_jogador2, iv_jogador3, iv_jogador4;
     FloatingActionButton fabReset ;
-    public int[] arrayImage = {
+    /*public int[] arrayImage = {
             R.drawable.arvoreverde,
             R.drawable.azul2,
             R.drawable.branco,
             R.drawable.liliana,
             R.drawable.red,
             R.drawable.principal,
-            R.drawable.branco2};
+            R.drawable.branco2};*/
     private InterstitialAd mInterstitialAd;
 
     @Override

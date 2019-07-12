@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/holo_blue_bright"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/vermelho"
+
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.50" />
 
@@ -26,13 +26,12 @@
         android:id="@+id/tv_azul"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
         android:background="#55F50000"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="@+id/tv_jogador2"
         app:layout_constraintEnd_toEndOf="@+id/btt_jogador2subtracao"
         app:layout_constraintStart_toStartOf="@+id/btt_jogador2adicao"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
- />
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -51,8 +50,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="@+id/btt_jogador1subtracao"
         app:layout_constraintStart_toStartOf="@+id/btt_jogador1adicao"
-        app:layout_constraintTop_toTopOf="@+id/tv_jogador1"
-        />
+        app:layout_constraintTop_toTopOf="@+id/tv_jogador1" />
 
     <TextView
         android:id="@+id/tv_jogador1"
@@ -131,7 +129,7 @@
 
     <TextView
         android:id="@+id/tv_jogador2"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
         android:text="20"
@@ -201,17 +199,6 @@
         app:layout_constraintTop_toTopOf="@+id/tv_jogador1" />
 
 
-    <TextView
-        android:id="@+id/textView4"
-        android:textColor="#000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline16"
         android:layout_width="wrap_content"
@@ -247,6 +234,43 @@
         android:orientation="vertical"
         ads:layout_constraintGuide_begin="147dp" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_begin="419dp" />
+
+
+    <ImageView
+        android:id="@+id/iv_dados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="496dp"
+        android:layout_marginBottom="8dp"
+        ads:layout_constraintBottom_toTopOf="@+id/adViewBoton"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintHorizontal_bias="0.492"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        ads:layout_constraintVertical_bias="1.0"
+        ads:srcCompat="@drawable/dado1" />
+
+    <ImageView
+        android:id="@+id/iv_dados8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        ads:srcCompat="@drawable/dado1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/adViewTop" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -254,12 +278,23 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline11">
+        ads:layout_constraintBottom_toTopOf="@+id/guideline4"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/guideline11">
 
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_Dados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:textAlignment="gravity"
+            ads:backgroundTint="@color/transparente"
+            ads:fabSize="mini"
+            ads:srcCompat="@drawable/ic_casino_black_24dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_4players"
@@ -268,9 +303,9 @@
             android:background="@android:color/transparent"
             android:clickable="true"
             android:textAlignment="gravity"
-            app:backgroundTint="@color/transparente"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/fogo"
+            ads:backgroundTint="@color/transparente"
+            ads:fabSize="mini"
+            ads:srcCompat="@drawable/outline_looks_4_white_18dp"
 
             />
 
@@ -282,9 +317,9 @@
             android:background="@android:color/transparent"
             android:clickable="true"
             android:textAlignment="gravity"
-            app:backgroundTint="@color/transparente"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/anjo" />
+            ads:backgroundTint="@color/transparente"
+            ads:fabSize="mini"
+            ads:srcCompat="@drawable/ic_refresh_black_24dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_Tres"
@@ -293,19 +328,35 @@
             android:background="@android:color/transparent"
             android:clickable="true"
             android:textAlignment="gravity"
-            app:backgroundTint="@color/transparente"
-            app:fabSize="mini"
-            app:srcCompat="@drawable/pantano2" />
+            ads:backgroundTint="@color/transparente"
+            ads:fabSize="mini"
+            ads:srcCompat="@drawable/tres" />
 
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline21"
+    <TextView
+        android:id="@+id/tv_dado1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        ads:layout_constraintGuide_begin="419dp" />
+        android:layout_marginBottom="8dp"
+        android:text="Click Me!!"
+        android:visibility="gone"
+        ads:layout_constraintBottom_toTopOf="@+id/iv_dados"
+        ads:layout_constraintEnd_toEndOf="@+id/iv_dados"
+        ads:layout_constraintStart_toStartOf="@+id/iv_dados" />
+
+    <TextView
+        android:id="@+id/iv_dado_2"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Click Me!"
+        ads:layout_constraintEnd_toEndOf="@+id/iv_dados8"
+        ads:layout_constraintStart_toStartOf="@+id/iv_dados8"
+        ads:layout_constraintTop_toBottomOf="@+id/iv_dados8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
